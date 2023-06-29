@@ -9,6 +9,7 @@ export const TextArea = ({
   theme,
   hoverBg,
   style,
+  onChange,
 }) => {
   return (
     <textarea
@@ -39,6 +40,7 @@ export const TextArea = ({
               e.target.style.height = `${
                 document.querySelector(".summit-textarea-autoresize").scrollHeight
               }px`;
+              onChange(e);
             }
           : undefined
       }
@@ -46,11 +48,11 @@ export const TextArea = ({
         e.currentTarget.style.backgroundColor =
           theme === "dark"
             ? hoverBg || "rgba(255, 255, 255, 0.15)"
-            : hoverBg || "rgba(0, 0, 0, 0.15)";
+            : hoverBg || "rgba(0, 0, 0, 0.17)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.backgroundColor =
-          theme === "dark" ? "rgba(255, 255, 255, 0.07)" : "rgba(0, 0, 0, 0.07)";
+          theme === "dark" ? "rgba(255, 255, 255, 0.07)" : "rgba(0, 0, 0, 0.1)";
       }}
     ></textarea>
   );
@@ -83,6 +85,9 @@ TextArea.propTypes = {
 
   /**Extra styling, like width etc... */
   style: PropTypes.object,
+
+  /**onChange function runs for every change in the text area */
+  onChange: PropTypes.func,
 };
 
 TextArea.defaultProps = {
@@ -93,4 +98,5 @@ TextArea.defaultProps = {
   theme: "dark",
   hoverBg: undefined,
   style: {},
+  onChange: undefined,
 };

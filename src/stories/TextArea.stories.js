@@ -11,5 +11,9 @@ export default {
 };
 
 export const Default = {
-  args: {},
+  args: {
+    onChange: (e) => {
+      console.log(e.target.value);
+    },
+  },
 };
