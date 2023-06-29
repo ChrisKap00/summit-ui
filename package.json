@@ -2,11 +2,14 @@
   "name": "summit-ui",
   "version": "1.0.0",
   "description": "A simple, easy to use React Component library to make your web application stand out",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build-library": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -19,8 +22,12 @@
   },
   "homepage": "https://github.com/ChrisKap00/summit-ui#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
     "@storybook/addon-essentials": "^7.0.24",
     "@storybook/addon-interactions": "^7.0.24",
     "@storybook/addon-links": "^7.0.24",
@@ -28,12 +35,16 @@
     "@storybook/react": "^7.0.24",
     "@storybook/react-webpack5": "^7.0.24",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "babel-loader": "^9.1.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup": "^3.25.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^7.0.24"
   },
   "peerDependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
